@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+The application, which shows how to use Mongo DBRefs for Nestjs + Mongoose.
 
 ## Installation
 
@@ -32,42 +32,33 @@
 $ yarn install
 ```
 
-## Running the app
+## Demo
 
-```bash
-# development
-$ yarn run start
+1. Install packages:
 
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+```sh
+yarn
 ```
 
-## Test
+2. Start the application:
 
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+```sh
+yarn start
 ```
 
-## Support
+3. Execute next command in another terminal window:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```sh
+yarn demo
+```
 
-## Stay in touch
+OR: run the app and execute next commands manually for populating the DB with test data and see the auto-populated result:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```sh
+curl --silent --location 'http://localhost:3000/members' --header 'Content-Type: application/json' --data-raw '{"firstName":"Oksana","lastName":"Kaka","email": "ok@gmail.com"}'
+curl --silent --location 'http://localhost:3000/members' --header 'Content-Type: application/json' --data-raw '{"firstName":"Semen","lastName":"Doopa","email": "sm@gmail.com"}'
+curl --silent --location 'http://localhost:3000/members' --header 'Content-Type: application/json' --data-raw '{"firstName":"Vasyl","lastName":"Bibikalo","email": "vb@gmail.com"}'
+curl --silent --location 'http://localhost:3000/teams' --header 'Content-Type: application/json' --data-raw '{"name": "Alco bees","description": "The very best team ever","teamLead": "vb@gmail.com","members": ["sm@gmail.com","ok@gmail.com"]}'
 
-## License
-
-Nest is [MIT licensed](LICENSE).
+echo "\n\n\nAuto populated Team:\n`curl --location 'http://localhost:3000/teams' | jq`"
+```
