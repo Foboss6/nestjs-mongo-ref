@@ -2,6 +2,7 @@ import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 import { MemberDto } from './dto/member.dto';
 import { TeamDto } from './dto/team.dto';
+import { performance } from 'perf_hooks';
 
 @Controller()
 export class AppController {
@@ -24,6 +25,27 @@ export class AppController {
 
   @Get('teams')
   async getTeams() {
-    return this.appService.getTeams();
+    const start = performance.now();
+
+    const res = await this.appService.getTeams();
+
+    console.log('Duration: ', Math.ceil(performance.now() - start), ' ms');
+
+    return res;
+  }
+
+  @Get('teams/populated')
+  async getTeamsPopulated() {
+    const start = performance.now();
+
+    const res = await this.appService.getTeamsPopulate();
+
+    console.log(
+      'Duration with auto population: ',
+      Math.ceil(performance.now() - start),
+      ' ms',
+    );
+
+    return res;
   }
 }

@@ -1,0 +1,13 @@
+echo 'Getting teams'
+curl --silent --location 'http://localhost:3000/teams'
+curl --silent --location 'http://localhost:3000/teams'
+curl --silent --location 'http://localhost:3000/teams'
+curl --silent --location 'http://localhost:3000/teams'
+curl --silent --location 'http://localhost:3000/teams'
+
+echo 'Getting teams with autoo population'
+curl --silent --location 'http://localhost:3000/teams/populated'
+curl --silent --location 'http://localhost:3000/teams/populated'
+curl --silent --location 'http://localhost:3000/teams/populated'
+curl --silent --location 'http://localhost:3000/teams/populated'
+curl --silent --location 'http://localhost:3000/teams/populated'
